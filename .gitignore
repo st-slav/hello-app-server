@@ -26,5 +26,5 @@ hs_err_pid*
 target/
 .settings/
 node_modules/
-src/main/webapp/wendor.js
+src/main/webapp/vendor.js
 

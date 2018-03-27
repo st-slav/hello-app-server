@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>hello-app-server</groupId>
+	<artifactId>hello-app-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>hello-app-server</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<parent>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <groupId>org.springframework.boot</groupId>
+		<version>2.0.0.RELEASE</version>
+	    <relativePath />
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	    <dependency>
+		      <groupId>org.apache.tomcat.embed</groupId>
+		      <artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<defaultGoal>spring-boot:run</defaultGoal>
+		
+		<plugins>
+		    <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>exec-maven-plugin</artifactId>
+		        <version>1.6.0</version>
+		        <executions>
+		            <execution>
+		                <id>npm-install</id>
+		                <phase>generate-sources</phase>
+		                <configuration>
+		                    <workingDirectory>${project.basedir}</workingDirectory>
+		                    <executable>npm</executable>
+		                    <arguments>
+		                        <argument>install</argument>
+		                    </arguments>
+		                </configuration>
+		                <goals>
+		                    <goal>exec</goal>
+		                </goals>
+		            </execution>
+		            <execution>
+		                <id>npm-run-build</id>
+		                <phase>generate-sources</phase>
+		                <configuration>
+		                    <workingDirectory>${project.basedir}</workingDirectory>
+		                    <executable>npm</executable>
+		                    <arguments>
+		                    	<argument>run</argument>
+		                        <argument>build</argument>
+		                    </arguments>
+		                </configuration>
+		                <goals>
+		                    <goal>exec</goal>
+		                </goals>
+		            </execution>
+		        </executions>
+		    </plugin>
+  		    <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>3.7.0</version>
+		        <configuration>
+		            <excludes>
+		                <exclude>ts/**</exclude>
+		                <exclude>node_modules/**</exclude>
+		            </excludes>
+		        </configuration>
+ 		    </plugin>
+		    <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-war-plugin</artifactId>
+		        <version>3.2.0</version>
+<!-- 				<version>3.0.2</version> -->
+		        <configuration>
+		            <excludes>
+		                <exclude>ts/**</exclude>
+		                <exclude>node_modules/**</exclude>
+		            </excludes>
+		        </configuration>
+		    </plugin>
+		</plugins>
+	</build> 
+</project>
+

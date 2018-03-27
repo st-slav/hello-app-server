@@ -1,0 +1,38 @@
+{
+  "name": "hello-app",
+  "version": "1.0.0",
+  "description": "hello app angular 5",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --hot --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "author": "mamsta",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "^5.2.9",
+    "@angular/compiler": "^5.2.9",
+    "@angular/core": "^5.2.9",
+    "@angular/forms": "^5.2.9",
+    "@angular/platform-browser": "^5.2.9",
+    "@angular/platform-browser-dynamic": "^5.2.9",
+    "@angular/router": "^5.2.9",
+    "core-js": "^2.5.3",
+    "rxjs": "^5.5.7",
+    "zone.js": "^0.8.20"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.0",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^5.0.0-1",
+    "css-loader": "^0.28.11",
+    "html-loader": "^0.5.5",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.20.3",
+    "typescript": "^2.7.2",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^4.2.0",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-cli": "^2.0.13"
+  }
+}
